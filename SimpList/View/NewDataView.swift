@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewDataView: View {
     @ObservedObject var homeData: HomeViewModel
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         VStack {
@@ -50,7 +51,7 @@ struct NewDataView: View {
             
             // Add Button
             Button(action: {
-                
+                homeData.writeData(context: context)
             }, label: {
                 Label(title: {
                     Text("Add Now")
@@ -70,6 +71,10 @@ struct NewDataView: View {
                 .cornerRadius(8)
             })
             .padding()
+            
+            // disabling button when no data
+            .disabled(homeData.content == "" ? true: false)
+            .opacity(homeData.content == "" ? 0.5 : 1)
         }
         .background(Color.black.opacity(0.06)
                         .ignoresSafeArea(.all, edges: .bottom))
