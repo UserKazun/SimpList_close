@@ -16,8 +16,8 @@
 		0F57ACD825285035000A5D8A /* SimpList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F57ACD625285035000A5D8A /* SimpList.xcdatamodeld */; };
 		0F57ACE325285035000A5D8A /* SimpListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F57ACE225285035000A5D8A /* SimpListTests.swift */; };
 		0F57ACEE25285035000A5D8A /* SimpListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F57ACED25285035000A5D8A /* SimpListUITests.swift */; };
-		0F57AD0025285463000A5D8A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F57ACFF25285463000A5D8A /* Home.swift */; };
 		0F57AD072528555F000A5D8A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F57AD062528555F000A5D8A /* Home.swift */; };
+		0F5A4774252F5F9400A2EB4B /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5A4773252F5F9400A2EB4B /* DateButton.swift */; };
 		0FD841C4252E00AC0079F124 /* NewDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD841C3252E00AC0079F124 /* NewDataView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +54,8 @@
 		0F57ACE925285035000A5D8A /* SimpListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F57ACED25285035000A5D8A /* SimpListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpListUITests.swift; sourceTree = "<group>"; };
 		0F57ACEF25285035000A5D8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F57ACFF25285463000A5D8A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0F57AD062528555F000A5D8A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		0F5A4773252F5F9400A2EB4B /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
 		0FD841C3252E00AC0079F124 /* NewDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,7 +116,6 @@
 				0F57ACD925285035000A5D8A /* Info.plist */,
 				0F57ACD625285035000A5D8A /* SimpList.xcdatamodeld */,
 				0F57ACD125285035000A5D8A /* Preview Content */,
-				0F57ACFF25285463000A5D8A /* Home.swift */,
 			);
 			path = SimpList;
 			sourceTree = "<group>";
@@ -152,6 +151,7 @@
 			children = (
 				0F57AD062528555F000A5D8A /* Home.swift */,
 				0FD841C3252E00AC0079F124 /* NewDataView.swift */,
+				0F5A4773252F5F9400A2EB4B /* DateButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,8 +297,8 @@
 				0F57ACCE25285033000A5D8A /* ContentView.swift in Sources */,
 				0F412227252DFDD2006CAE5F /* HomeViewModel.swift in Sources */,
 				0FD841C4252E00AC0079F124 /* NewDataView.swift in Sources */,
-				0F57AD0025285463000A5D8A /* Home.swift in Sources */,
 				0F57ACD825285035000A5D8A /* SimpList.xcdatamodeld in Sources */,
+				0F5A4774252F5F9400A2EB4B /* DateButton.swift in Sources */,
 				0F57AD072528555F000A5D8A /* Home.swift in Sources */,
 				0F57ACCC25285033000A5D8A /* SimpListApp.swift in Sources */,
 			);

@@ -10,13 +10,12 @@ import CoreData
 
 struct ContentView: View {
     
-    var body: some View {
-        Text("Hello")
+    init() {
+        UITextView.appearance()
+            .backgroundColor = .clear
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    
+    var body: some View {
+        Home()
     }
 }
