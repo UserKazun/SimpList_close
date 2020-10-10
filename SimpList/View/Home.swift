@@ -45,12 +45,12 @@ struct Home: View {
                     ScrollView(.vertical, showsIndicators: false, content: {
                         LazyVStack(alignment: .leading, spacing: 20) {
                             ForEach(results) { task in
-                                VStack(alignment: .leading, spacing: 5, content: {
-                                    Text(task.content ?? "")
-                                        .font(.title)
+                                HStack(alignment: .center, spacing: 5, content: {
+                                    Text(task.date ?? Date(), style: .time)
                                         .fontWeight(.bold)
                                     
-                                    Text(task.date ?? Date(), style: .date)
+                                    Text(task.content ?? "")
+                                        .font(.title)
                                         .fontWeight(.bold)
                                 })
                                 .foregroundColor(.black)
