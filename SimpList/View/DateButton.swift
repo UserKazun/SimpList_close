@@ -22,7 +22,7 @@ struct DateButton: View {
                 .padding(.horizontal, 20)
                 .background(
                     homeData.checkDate() == title ?
-                    LinearGradient(gradient: .init(colors: [Color("Color"), Color("Color1")]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: .init(colors: [Color("Color"), Color("Color1")]), startPoint: .leading, endPoint: .trailing)
                         : LinearGradient(gradient: .init(colors: [Color("Color"), Color("Color1")]), startPoint: .leading, endPoint: .trailing)
                 )
                 .cornerRadius(6)
