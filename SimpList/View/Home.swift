@@ -14,10 +14,11 @@ struct Home: View {
     // Fetching Data
     @FetchRequest(entity: Task.entity(), sortDescriptors:
                     [NSSortDescriptor(key: "date", ascending: true)], animation: .spring()) var results: FetchedResults<Task>
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Text("Tasks")
                         .font(.largeTitle)
@@ -30,22 +31,48 @@ struct Home: View {
                 .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
                 .background(Color.white)
                 
-                ScrollView(.vertical, showsIndicators: false, content: {
-                    LazyVStack(alignment: .leading, spacing: 20) {
-                        ForEach(results) { task in
-                            VStack(alignment: .leading, spacing: 5, content: {
-                                Text(task.content ?? "")
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                
-                                Text(task.date ?? Date(), style: .date)
-                                    .fontWeight(.bold)
-                            })
-                            .foregroundColor(.black)
+                // Empty View
+                if results.isEmpty {
+                    Spacer()
+                    
+                    Text("No Tasks")
+                        .font(.title)
+                        .foregroundColor(.black)
+                        .fontWeight(.heavy)
+                    
+                    Spacer()
+                } else {
+                    ScrollView(.vertical, showsIndicators: false, content: {
+                        LazyVStack(alignment: .leading, spacing: 20) {
+                            ForEach(results) { task in
+                                VStack(alignment: .leading, spacing: 5, content: {
+                                    Text(task.content ?? "")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                    
+                                    Text(task.date ?? Date(), style: .date)
+                                        .fontWeight(.bold)
+                                })
+                                .foregroundColor(.black)
+                                .contextMenu {
+                                    Button(action: {
+                                        homeData.EditItem(item: task)
+                                    }, label: {
+                                        Text("Edit")
+                                    })
+                                    
+                                    Button(action: {
+                                        context.delete(task)
+                                        try! context.save()
+                                    }, label: {
+                                        Text("Delete")
+                                    })
+                                }
+                            }
                         }
-                    }
-                    .padding()
-                })
+                        .padding()
+                    })
+                }
             }
             // Add Button
             Button(action: {

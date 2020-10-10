@@ -12,49 +12,38 @@ struct NewDataView: View {
     @Environment(\.managedObjectContext) var context
     
     var body: some View {
+        ZStack(alignment: .topLeading) {
+            RoundedRectangle(cornerRadius: 0, style: .continuous)
+                .fill(Color(UIColor.secondarySystemBackground))
+            
+            if homeData.content.isEmpty {
+                Text("\(homeData.updateItem == nil ? "Add" : "Update") Task")
+                    .foregroundColor(Color(UIColor.placeholderText))
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 12)
+            }
+            TextEditor(text: $homeData.content)
+                .padding(50)
+        }
+            
         VStack {
             HStack {
-                Text("Add New Task")
-                    .font(.system(size: 65))
-                    .fontWeight(.heavy)
-                    .foregroundColor(.black)
-                
-                Spacer(minLength: 0)
-            }
-            .padding()
-            
-            TextEditor(text: $homeData.content)
-                .padding()
-            
-            Divider()
-                .padding(.horizontal)
-            
-            HStack {
-                Text("When")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                
-                Spacer(minLength: 0)
-            }
-            .padding()
-            
-            HStack(spacing: 10) {
                 DateButton(title: "Today", homeData: homeData)
                 DateButton(title: "Tomorrow", homeData: homeData)
-                
+                            
                 // Date Picker
                 DatePicker("", selection: $homeData.date, displayedComponents: .date)
                     .labelsHidden()
+                    .accentColor(Color.green)
             }
             .padding()
-            
+                        
             // Add Button
             Button(action: {
                 homeData.writeData(context: context)
             }, label: {
                 Label(title: {
-                    Text("Add Now")
+                    Text(homeData.updateItem == nil ? "Add Now" : "Update")
                         .font(.title2)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
@@ -71,7 +60,7 @@ struct NewDataView: View {
                 .cornerRadius(8)
             })
             .padding()
-            
+                    
             // disabling button when no data
             .disabled(homeData.content == "" ? true: false)
             .opacity(homeData.content == "" ? 0.5 : 1)
