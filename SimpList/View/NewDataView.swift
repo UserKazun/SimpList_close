@@ -27,18 +27,29 @@ struct NewDataView: View {
                 TextEditor(text: $homeData.content)
                     .padding()
                 
-                HStack {
-                    DateButton(title: "Today", homeData: homeData)
-                    DateButton(title: "Tomorrow", homeData: homeData)
+                VStack(alignment: .leading) {
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "location.fill")
+                            .font(.body)
+                            .padding(10)
+                            .foregroundColor(.black)
+                    })
+                    // Date Picker for time.
+                    DatePicker("", selection: $homeData.date, displayedComponents: .hourAndMinute)
+                        .labelsHidden()
+                        .accentColor(.blue)
                     
-                    // Date Picker
+                    // Date Picker for date.
                     DatePicker("", selection: $homeData.date, displayedComponents: .date)
                         .labelsHidden()
-                        .accentColor(Color.green)
+                        .accentColor(.blue)
                 }
-                .padding()
+                .padding(.horizontal, 30)
             }
-            .padding(.vertical, 40)
+            .padding(.vertical, 50)
+
             // Add Button
             Button(action: {
                 homeData.writeData(context: context)
