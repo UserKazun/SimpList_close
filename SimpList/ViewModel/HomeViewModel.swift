@@ -24,10 +24,12 @@ class HomeViewModel: ObservableObject {
     var count = 0
     
     func countItem(item: FetchedResults<Task>) -> Int {
-        for _ in item {
-            count += 1
+        if !item.isEmpty {
+            for _ in item {
+                count += 1
+            }
         }
-
+        
         return count
     }
     

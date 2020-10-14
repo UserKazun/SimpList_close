@@ -35,8 +35,10 @@ struct Home: View {
                         LazyVStack(alignment: .leading, spacing: 20) {
                             Spacer(minLength: 230)
                             
-                            Text("本日のTodo\(homeData.countItem(item: results))件")
-                                .foregroundColor(.black)
+                            if results.isEmpty {
+                                Text("こんにちは")
+                                    .foregroundColor(.black)
+                            }
                             
                             ForEach(results) { task in
                                 HStack(alignment: .center, spacing: 10, content: {
@@ -91,4 +93,23 @@ struct Home: View {
             NewDataView(homeData: homeData)
         })
     }
+}
+
+func getGreeting() -> String {
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    
+    // Time set
+    let startMorningTime = ""
+    let endMornignTime = ""
+    let startEveningTime = ""
+    let endEveningTime = ""
+    let startNightTime = ""
+    let endNightTime = ""
+    
+    var greeting = ""
+    
+    dateFormatter.dateFormat =  DateFormatter.dateFormat(fromTemplate: "HH:mm:ss", options: 0, locale: Locale(identifier: "ja_JP"))
+    
+    return greeting
 }
