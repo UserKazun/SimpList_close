@@ -19,18 +19,6 @@ struct Home: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
             VStack(spacing: 0) {
-                HStack {
-                    Text("Tasks")
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.black)
-                    
-                    Spacer(minLength: 0)
-                }
-                .padding()
-                .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
-                .background(Color.white)
-                
                 // Empty View
                 if results.isEmpty {
                     Spacer()
@@ -41,17 +29,27 @@ struct Home: View {
                         .fontWeight(.heavy)
                     
                     Spacer()
+                    
                 } else {
                     ScrollView(.vertical, showsIndicators: false, content: {
                         LazyVStack(alignment: .leading, spacing: 20) {
+                            Spacer(minLength: 230)
+                            
+                            if results.isEmpty {
+                                Text("こんにちは")
+                                    .foregroundColor(.black)
+                            }
+                            
                             ForEach(results) { task in
-                                HStack(alignment: .center, spacing: 5, content: {
+                                HStack(alignment: .center, spacing: 10, content: {
                                     Text(task.date ?? Date(), style: .time)
-                                        .fontWeight(.bold)
+                                        .font(.system(size: 15))
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.blue)
                                     
                                     Text(task.content ?? "")
-                                        .font(.title)
-                                        .fontWeight(.bold)
+                                        .font(.system(size: 15))
+                                        .fontWeight(.regular)
                                 })
                                 .foregroundColor(.black)
                                 .contextMenu {
@@ -95,4 +93,23 @@ struct Home: View {
             NewDataView(homeData: homeData)
         })
     }
+}
+
+func getGreeting() -> String {
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    
+    // Time set
+    let startMorningTime = ""
+    let endMornignTime = ""
+    let startEveningTime = ""
+    let endEveningTime = ""
+    let startNightTime = ""
+    let endNightTime = ""
+    
+    var greeting = ""
+    
+    dateFormatter.dateFormat =  DateFormatter.dateFormat(fromTemplate: "HH:mm:ss", options: 0, locale: Locale(identifier: "ja_JP"))
+    
+    return greeting
 }

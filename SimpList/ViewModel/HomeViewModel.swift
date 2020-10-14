@@ -15,11 +15,23 @@ class HomeViewModel: ObservableObject {
     // For NewData Sheet
     @Published var isNewData = false
     
+    // Storing Update Item
+    @Published var updateItem: Task!
+    
     // Checking And Updating Date
     let calender = Calendar.current
     
-    // Storing Update Item
-    @Published var updateItem: Task!
+    var count = 0
+    
+    func countItem(item: FetchedResults<Task>) -> Int {
+        if !item.isEmpty {
+            for _ in item {
+                count += 1
+            }
+        }
+        
+        return count
+    }
     
     func checkDate() -> String {
         if calender.isDateInToday(date) {
