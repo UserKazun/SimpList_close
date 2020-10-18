@@ -18,6 +18,8 @@ struct Home: View {
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
+            Color("AccentColor").edgesIgnoringSafeArea(.all)
+            
             VStack(spacing: 0) {
                 // Empty View
                 if results.isEmpty {
@@ -88,28 +90,8 @@ struct Home: View {
             .padding()
         })
         .ignoresSafeArea(.all, edges: .top)
-        .background(Color.black.opacity(0.06).ignoresSafeArea(.all, edges: .all))
         .sheet(isPresented: $homeData.isNewData, content: {
             NewDataView(homeData: homeData)
         })
     }
-}
-
-func getGreeting() -> String {
-    let date = Date()
-    let dateFormatter = DateFormatter()
-    
-    // Time set
-    let startMorningTime = ""
-    let endMornignTime = ""
-    let startEveningTime = ""
-    let endEveningTime = ""
-    let startNightTime = ""
-    let endNightTime = ""
-    
-    var greeting = ""
-    
-    dateFormatter.dateFormat =  DateFormatter.dateFormat(fromTemplate: "HH:mm:ss", options: 0, locale: Locale(identifier: "ja_JP"))
-    
-    return greeting
 }
