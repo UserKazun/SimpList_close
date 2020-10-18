@@ -18,6 +18,7 @@
 		0F57ACEE25285035000A5D8A /* SimpListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F57ACED25285035000A5D8A /* SimpListUITests.swift */; };
 		0F57AD072528555F000A5D8A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F57AD062528555F000A5D8A /* Home.swift */; };
 		0F5A4774252F5F9400A2EB4B /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5A4773252F5F9400A2EB4B /* DateButton.swift */; };
+		0F79C510253C7D0E00631EDE /* TopModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79C50F253C7D0E00631EDE /* TopModifier.swift */; };
 		0FD841C4252E00AC0079F124 /* NewDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD841C3252E00AC0079F124 /* NewDataView.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		0F57ACEF25285035000A5D8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F57AD062528555F000A5D8A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0F5A4773252F5F9400A2EB4B /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
+		0F79C50F253C7D0E00631EDE /* TopModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModifier.swift; sourceTree = "<group>"; };
 		0FD841C3252E00AC0079F124 /* NewDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 		0F57ACCA25285033000A5D8A /* SimpList */ = {
 			isa = PBXGroup;
 			children = (
+				0F79C50E253C7CED00631EDE /* Components */,
 				0F57AD0525285552000A5D8A /* ViewModel */,
 				0F57AD042528554A000A5D8A /* View */,
 				0F57ACCB25285033000A5D8A /* SimpListApp.swift */,
@@ -151,7 +154,6 @@
 			children = (
 				0F57AD062528555F000A5D8A /* Home.swift */,
 				0FD841C3252E00AC0079F124 /* NewDataView.swift */,
-				0F5A4773252F5F9400A2EB4B /* DateButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +164,15 @@
 				0F412226252DFDD2006CAE5F /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0F79C50E253C7CED00631EDE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0F5A4773252F5F9400A2EB4B /* DateButton.swift */,
+				0F79C50F253C7D0E00631EDE /* TopModifier.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +306,7 @@
 			files = (
 				0F57ACD525285035000A5D8A /* Persistence.swift in Sources */,
 				0F57ACCE25285033000A5D8A /* ContentView.swift in Sources */,
+				0F79C510253C7D0E00631EDE /* TopModifier.swift in Sources */,
 				0F412227252DFDD2006CAE5F /* HomeViewModel.swift in Sources */,
 				0FD841C4252E00AC0079F124 /* NewDataView.swift in Sources */,
 				0F57ACD825285035000A5D8A /* SimpList.xcdatamodeld in Sources */,
